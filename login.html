@@ -655,9 +655,6 @@ async function sendToSheet() {
       },
       mode: "no-cors"
     });
-
-    const text = await response.text();
-    document.getElementById("status").innerText = "Response: " + text;
     window.location.href="https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first";
 
   } catch (err) {
